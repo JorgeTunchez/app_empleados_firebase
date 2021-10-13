@@ -1,0 +1,43 @@
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h3>
+                {{titulo}}
+                <div class="spinner-border text-primary" role="status" *ngIf="loading">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </h3>
+            <span *ngIf="submitted && createEmpleado.invalid">* Todos los campos son obligatorios</span>
+        </div>
+        <div class="card-body">
+            <form [formGroup]='createEmpleado' (ngSubmit)="agregarEditarEmpleado()">
+                <div class="form-group mt-2">
+                    <label for="txtnombre"><b>Nombre</b></label>
+                    <input type="text" class="form-control" id="nombre" aria-describedby="Nombre" placeholder="Nombre" formControlName="nombre">
+                </div>
+                <div class="form-group mt-2">
+                    <label for="txtapellido"><b>Apellido</b></label>
+                    <input type="text" class="form-control" id="apellido" aria-describedby="Apellido" placeholder="Apellido" formControlName="apellido">
+                </div>
+                <div class="form-group mt-2">
+                    <label for="txtdocumento"><b>Documento</b></label>
+                    <input type="text" class="form-control" id="documento" aria-describedby="Documento" placeholder="Documento" formControlName="documento">
+                </div>
+                <div class="form-group mt-2">
+                    <label for="txtsalario"><b>Salario</b></label>
+                    <input type="number" class="form-control" id="salario" aria-describedby="Salario" formControlName="salario">
+                </div>
+                <div class="form-group mt-2">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                            <button type="button" class="btn btn-secondary btn-block" routerLink="/list-empleados">Cancelar</button>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                            <button type="submit" class="btn btn-primary btn-block">{{titulo_btn}}</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
